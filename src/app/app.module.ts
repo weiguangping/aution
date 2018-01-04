@@ -11,13 +11,14 @@ import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { StarsComponent } from './stars/stars.component';
-import { StockComponent } from './stock/stock.component';
+import { ProductComponent } from './product/product.component';
 import { ProdetailsComponent } from './prodetails/prodetails.component';
 import { HomeComponent } from './home/home.component';
+import { ProductService } from './shared/product.service';
 
 const RouteConfig:Routes=[
   {path:'',component:HomeComponent},
-  {path:'product/:prodTitle',component:ProdetailsComponent}
+  {path:'product/:productId',component:ProdetailsComponent}
 ]
 
 @NgModule({
@@ -30,7 +31,7 @@ const RouteConfig:Routes=[
     MenuComponent,
     SidebarComponent,
     StarsComponent,
-    StockComponent,
+    ProductComponent,
     ProdetailsComponent,
     HomeComponent
   ],
@@ -38,7 +39,7 @@ const RouteConfig:Routes=[
     BrowserModule,
     RouterModule.forRoot(RouteConfig)
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
