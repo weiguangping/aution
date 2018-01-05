@@ -1,10 +1,17 @@
-<div class="pro">
+<div class="pro row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <input type="" class="form-control" placeholder="请输入商品名称" name="" value="" [formControl]="titleFilter">
+        </div>
+    </div>
 
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" *ngFor="let item of products;let i = index;">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" *ngFor="let item of products|filter:'title':keyword">
         <img src="{{item.src}}" alt="">
-        <p><a [routerLink]="['/product',item.id]">{{item.title}}</a></p>
+        <p><a [routerLink]="['/product',item.id]">{{item.title}}</a>
+            <span class="pull-right">{{item.price}}</span>
+        </p>
         <p>{{item.desc}}</p>
-        <p>{{item.price}}</p>
+        <p>{{item.rating}}</p>
     </div>
 
 </div>
