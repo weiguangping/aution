@@ -1,3 +1,4 @@
+import { WebSocketService } from './shared/web-socket.service';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { ProductService } from './shared/product.service';
 import { FilterPipe } from './pipe/filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 const RouteConfig:Routes=[
   {path:'',component:HomeComponent},
@@ -42,9 +45,10 @@ const RouteConfig:Routes=[
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(RouteConfig)
+    RouterModule.forRoot(RouteConfig),
+    HttpModule
   ],
-  providers: [ProductService],
+  providers: [ProductService,WebSocketService,{provide:LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

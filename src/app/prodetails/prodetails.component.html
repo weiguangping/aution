@@ -1,17 +1,22 @@
 <div class="thumbnail">
     <img src="http://placehold.it/800x300" alt="">
     <div>
-        <h4 class="pull-right">{{product.price}}元</h4>
-        <h4>{{product.title}}</h4>
-        <p>{{product.desc}}</p>
+        <h4 class="pull-right">{{product?.price}}元</h4>
+        <h4>{{product?.title}}</h4>
+        <p>{{product?.desc}}</p>
     </div>
     <div>
-        <p class="pull-right">{{comments.length}}</p>
         <p>
-            星级:{{product.rating}}
+            星级:{{product?.rating}}
         </p>
     </div>
 </div>
+<!-- <div class="thumbnail">
+    <button type="btn btn-default btn-lg" [class.active]="isWatched" (click)="watchProduct()">
+        {{isWatched?"取消关注":"关注"}}
+    </button>
+    <label for=""> 最新出价：{{currentBid}}元</label>
+</div> -->
 <div class="well">
     <div class="row" *ngFor="let item of comments">
         <hr>
